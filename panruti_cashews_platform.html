@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panruti Premium Cashews — Farm to Table Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ══════════════════════════════════════════
+   DESIGN SYSTEM
+══════════════════════════════════════════ */
+:root {
+  --forest:    #1a3d1f;
+  --forest-mid:#2d5a35;
+  --forest-lt: #3d7a47;
+  --sage:      #6b9e6f;
+  --mint:      #c8e6c9;
+  --gold:      #c8973a;
+  --gold-lt:   #e8b84b;
+  --amber:     #a07428;
+  --cream:     #fdf8f0;
+  --warm:      #f5ede0;
+  --beige:     #ede0cc;
+  --brown:     #5c3d1e;
+  --brown-dk:  #3a2010;
+  --text:      #1e1208;
+  --muted:     #7a6450;
+  --border:    #ddd0bb;
+  --white:     #ffffff;
+  --shadow-sm: 0 2px 8px rgba(30,18,8,.07);
+  --shadow-md: 0 6px 24px rgba(30,18,8,.11);
+  --shadow-lg: 0 16px 48px rgba(30,18,8,.15);
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:inherit;}
+input,textarea,select{font-family:inherit;}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--cream);}
+::-webkit-scrollbar-thumb{background:var(--sage);border-radius:3px;}
+
+/* ══════════════════════════════════════════
+   UTILITY
+══════════════════════════════════════════ */
+.container{max-width:1240px;margin:0 auto;padding:0 5%;}
+.section-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;
+}
+.section-tag::before{content:'';width:24px;height:2px;background:var(--gold);}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,3.5vw,2.8rem);
+  color:var(--brown-dk);line-height:1.2;margin-bottom:1rem;
+}
+.section-sub{
+  font-size:1rem;color:var(--muted);max-width:520px;line-height:1.75;
+}
+.badge{
+  display:inline-block;padding:.25rem .75rem;
+  border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.5px;
+}
+.badge-green{background:#e8f5e9;color:#2e7d32;}
+.badge-gold{background:#fff8e1;color:#f57f17;}
+.badge-red{background:#fce4ec;color:#c62828;}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:68px;
+  background:rgba(253,248,240,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .3s;
+}
+#navbar.scrolled{box-shadow:var(--shadow-md);}
+.nav-inner{
+  height:68px;display:flex;align-items:center;
+  justify-content:space-between;gap:1.5rem;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;font-weight:700;color:var(--brown-dk);
+  white-space:nowrap;
+}
+.nav-logo span{color:var(--forest-mid);}
+.nav-logo sup{font-size:.55rem;color:var(--gold);vertical-align:super;margin-left:2px;}
+.nav-links{
+  display:flex;list-style:none;gap:.2rem;
+  align-items:center;
+}
+.nav-links a{
+  padding:.45rem .75rem;border-radius:var(--r-sm);
+  font-size:.85rem;font-weight:500;color:var(--brown);
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{
+  background:var(--warm);color:var(--forest-mid);
+}
+.nav-actions{display:flex;gap:.6rem;align-items:center;}
+.btn-nav-farmer{
+  background:var(--forest-mid);color:#fff;
+  padding:.45rem 1.1rem;border-radius:var(--r-sm);
+  font-size:.83rem;font-weight:600;border:none;
+  transition:background .2s,transform .15s;
+}
+.btn-nav-farmer:hover{background:var(--forest);transform:translateY(-1px);}
+.btn-nav-admin{
+  background:var(--gold);color:#fff;
+  padding:.45rem 1.1rem;border-radius:var(--r-sm);
+  font-size:.83rem;font-weight:600;border:none;
+  transition:background .2s,transform .15s;
+}
+.btn-nav-admin:hover{background:var(--amber);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:.4rem;}
+.nav-hamburger span{width:22px;height:2px;background:var(--brown);display:block;transition:.3s;}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;align-items:center;
+  padding-top:68px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(160deg,
+      rgba(20,50,22,.96) 0%,
+      rgba(35,85,40,.88) 35%,
+      rgba(60,110,50,.75) 60%,
+      rgba(100,140,60,.55) 85%,
+      rgba(170,140,60,.4) 100%);
+  background-color:#1a3d1f;
+}
+/* Real Unsplash cashew farm image */
+.hero-bg-img{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=1600&q=80');
+  background-size:cover;background-position:center;
+  mix-blend-mode:multiply;opacity:.45;
+}
+.hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.hero-particles span{
+  position:absolute;border-radius:50%;
+  background:rgba(200,151,58,.12);
+  animation:float linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0);opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:.6;}
+  100%{transform:translateY(-10vh) scale(1.5);opacity:0;}
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  padding:5rem 5%;max-width:1240px;margin:0 auto;width:100%;
+}
+.hero-left{}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(200,151,58,.2);
+  border:1px solid rgba(200,151,58,.4);
+  color:#f0d090;
+  padding:.4rem 1rem;border-radius:20px;
+  font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:1.5rem;
+  animation:fadeUp .8s ease both;
+}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,4.5vw,4rem);
+  color:#fff;line-height:1.12;
+  margin-bottom:1.2rem;
+  animation:fadeUp .8s .1s ease both;
+}
+.hero-h1 em{color:#f0d090;font-style:italic;}
+.hero-desc{
+  color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.8;
+  max-width:480px;margin-bottom:2.2rem;
+  animation:fadeUp .8s .2s ease both;
+}
+.hero-btns{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:fadeUp .8s .3s ease both;
+}
+.btn-hero-primary{
+  background:var(--gold);color:#fff;
+  padding:.85rem 2rem;border-radius:var(--r-sm);
+  font-weight:700;font-size:.9rem;letter-spacing:.5px;border:none;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(200,151,58,.4);
+}
+.btn-hero-primary:hover{background:var(--amber);transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,151,58,.5);}
+.btn-hero-secondary{
+  background:rgba(255,255,255,.1);color:#fff;
+  padding:.85rem 2rem;border-radius:var(--r-sm);
+  font-weight:600;font-size:.9rem;border:1.5px solid rgba(255,255,255,.35);
+  transition:background .2s,transform .2s;backdrop-filter:blur(4px);
+}
+.btn-hero-secondary:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;
+  animation:fadeUp .8s .45s ease both;
+}
+.hero-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:700;color:#b8f080;
+}
+.hero-stat-lbl{font-size:.75rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.5px;margin-top:.1rem;}
+
+/* Hero right — Feature Cards */
+.hero-cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;
+  animation:fadeUp .8s .35s ease both;
+}
+.hero-card{
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--r-md);
+  padding:1.4rem;
+  transition:background .2s,transform .2s;
+}
+.hero-card:hover{background:rgba(255,255,255,.16);transform:translateY(-3px);}
+.hero-card-icon{font-size:1.8rem;margin-bottom:.7rem;}
+.hero-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:.3rem;}
+.hero-card p{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.55;}
+.hero-card.featured{
+  grid-column:span 2;
+  background:rgba(200,151,58,.2);
+  border-color:rgba(200,151,58,.4);
+}
+
+/* ══════════════════════════════════════════
+   MARQUEE STRIP
+══════════════════════════════════════════ */
+.marquee-strip{
+  background:var(--forest);padding:.8rem 0;overflow:hidden;
+  position:relative;z-index:1;
+}
+.marquee-track{
+  display:flex;gap:3rem;white-space:nowrap;
+  animation:marquee 28s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.75);
+}
+.marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+
+/* ══════════════════════════════════════════
+   CASHEW GRADES
+══════════════════════════════════════════ */
+.grades{padding:6rem 0;background:var(--warm);}
+.grades-header{text-align:center;margin-bottom:3.5rem;}
+.grades-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.8rem;
+}
+.grade-card{
+  background:var(--white);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:transform .3s,box-shadow .3s;
+  position:relative;
+}
+.grade-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+.grade-img{
+  height:220px;position:relative;overflow:hidden;
+}
+.grade-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s;
+}
+.grade-card:hover .grade-img img{transform:scale(1.06);}
+.grade-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 50%);
+}
+.grade-ribbon{
+  position:absolute;top:1rem;left:1rem;
+  background:var(--forest-mid);color:#fff;
+  padding:.3rem .8rem;border-radius:20px;
+  font-size:.72rem;font-weight:700;letter-spacing:.5px;
+}
+.grade-rating{
+  position:absolute;top:1rem;right:1rem;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  color:#f5d060;padding:.3rem .7rem;border-radius:20px;
+  font-size:.78rem;font-weight:600;
+}
+.grade-body{padding:1.5rem;}
+.grade-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;color:var(--brown-dk);margin-bottom:.25rem;
+}
+.grade-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
+.grade-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
+.grade-price{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:700;color:var(--forest-mid);
+}
+.grade-price sup{font-size:.7rem;vertical-align:super;}
+.grade-price span{font-size:.78rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.grade-size{font-size:.78rem;color:var(--muted);background:var(--warm);padding:.3rem .7rem;border-radius:20px;}
+.grade-actions{display:flex;gap:.8rem;}
+.btn-buy{
+  flex:1;background:var(--forest-mid);color:#fff;
+  padding:.6rem;border-radius:var(--r-sm);border:none;
+  font-size:.85rem;font-weight:600;
+  transition:background .2s,transform .15s;
+}
+.btn-buy:hover{background:var(--forest);transform:translateY(-1px);}
+.btn-enquire{
+  flex:1;background:var(--warm);color:var(--brown);
+  padding:.6rem;border-radius:var(--r-sm);border:1.5px solid var(--border);
+  font-size:.85rem;font-weight:600;
+  transition:background .2s,border-color .2s;
+}
+.btn-enquire:hover{background:var(--beige);border-color:var(--brown);}
+
+/* ══════════════════════════════════════════
+   MARKET PRICES DASHBOARD
+══════════════════════════════════════════ */
+.market{padding:6rem 0;background:var(--cream);}
+.market-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start;}
+.market-table-wrap{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--shadow-sm);}
+.market-table{width:100%;border-collapse:collapse;background:var(--white);}
+.market-table thead tr{background:var(--forest);color:#fff;}
+.market-table th{padding:.9rem 1.1rem;font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-align:left;}
+.market-table td{padding:.85rem 1.1rem;font-size:.88rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+.market-table tr:last-child td{border-bottom:none;}
+.market-table tr:hover td{background:var(--warm);}
+.price-up{color:#2e7d32;font-weight:700;}
+.price-down{color:#c62828;font-weight:700;}
+.trend-up::after{content:'▲';margin-left:.3rem;font-size:.65rem;}
+.trend-down::after{content:'▼';margin-left:.3rem;font-size:.65rem;}
+.market-grade-pill{
+  background:var(--beige);color:var(--brown);
+  padding:.2rem .7rem;border-radius:20px;
+  font-size:.78rem;font-weight:700;
+}
+.market-chart-wrap{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:2rem;box-shadow:var(--shadow-sm);
+}
+.market-chart-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown-dk);margin-bottom:1.5rem;}
+.bar-chart{display:flex;flex-direction:column;gap:1rem;}
+.bar-item{display:flex;align-items:center;gap:1rem;}
+.bar-label{width:50px;font-size:.8rem;font-weight:600;color:var(--brown);text-align:right;flex-shrink:0;}
+.bar-track{flex:1;height:32px;background:var(--warm);border-radius:var(--r-sm);overflow:hidden;position:relative;}
+.bar-fill{
+  height:100%;border-radius:var(--r-sm);
+  display:flex;align-items:center;padding-left:.8rem;
+  font-size:.8rem;font-weight:700;color:#fff;
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+  width:0;
+}
+.bar-fill.green{background:linear-gradient(90deg,var(--forest-mid),var(--sage));}
+.bar-fill.gold{background:linear-gradient(90deg,var(--amber),var(--gold-lt));}
+.bar-fill.brown{background:linear-gradient(90deg,var(--brown),#8a6040);}
+.market-last-updated{
+  font-size:.78rem;color:var(--muted);margin-top:1rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+
+/* ══════════════════════════════════════════
+   FARMER MARKETPLACE
+══════════════════════════════════════════ */
+.marketplace{padding:6rem 0;background:var(--warm);}
+.marketplace-header{margin-bottom:2.5rem;}
+.marketplace-filters{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  margin-bottom:2.5rem;align-items:center;
+}
+.filter-group{display:flex;align-items:center;gap:.5rem;}
+.filter-select{
+  padding:.55rem 1rem;border-radius:var(--r-sm);
+  border:1.5px solid var(--border);background:var(--white);
+  font-size:.85rem;color:var(--text);
+  outline:none;transition:border-color .2s;
+}
+.filter-select:focus{border-color:var(--forest-mid);}
+.filter-search{
+  flex:1;min-width:200px;
+  padding:.55rem 1rem .55rem 2.4rem;
+  border-radius:var(--r-sm);border:1.5px solid var(--border);
+  background:var(--white);font-size:.85rem;color:var(--text);outline:none;
+  transition:border-color .2s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237a6450' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:.8rem center;
+}
+.filter-search:focus{border-color:var(--forest-mid);}
+.marketplace-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.8rem;
+}
+.market-card{
+  background:var(--white);border-radius:var(--r-lg);
+  border:1px solid var(--border);overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.market-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.market-card-img{
+  height:190px;overflow:hidden;position:relative;
+}
+.market-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.market-card:hover .market-card-img img{transform:scale(1.05);}
+.market-card-verified{
+  position:absolute;bottom:.7rem;left:.7rem;
+  background:rgba(46,125,50,.9);color:#fff;
+  padding:.25rem .65rem;border-radius:20px;
+  font-size:.7rem;font-weight:700;
+  display:flex;align-items:center;gap:.3rem;
+}
+.market-card-body{padding:1.3rem;}
+.market-card-farmer{
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;
+}
+.farmer-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--forest-mid),var(--sage));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.8rem;font-weight:700;flex-shrink:0;
+}
+.farmer-name{font-size:.85rem;font-weight:600;color:var(--brown-dk);}
+.farmer-location{font-size:.75rem;color:var(--muted);}
+.market-card-grade{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;color:var(--brown-dk);margin-bottom:.4rem;
+}
+.market-card-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem;}
+.meta-pill{
+  background:var(--warm);color:var(--muted);
+  padding:.2rem .65rem;border-radius:20px;
+  font-size:.73rem;font-weight:500;
+}
+.market-card-footer{display:flex;align-items:center;justify-content:space-between;}
+.market-card-price{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;font-weight:700;color:var(--forest-mid);
+}
+.market-card-price small{font-size:.75rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.btn-contact{
+  background:var(--forest-mid);color:#fff;
+  padding:.5rem 1rem;border-radius:var(--r-sm);border:none;
+  font-size:.82rem;font-weight:600;
+  transition:background .2s;
+}
+.btn-contact:hover{background:var(--forest);}
+
+/* ══════════════════════════════════════════
+   QUALITY CHECK SECTION
+══════════════════════════════════════════ */
+.quality{padding:6rem 0;background:var(--cream);}
+.quality-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.quality-upload-box{
+  background:var(--white);border-radius:var(--r-lg);
+  border:2px dashed var(--border);padding:3rem 2rem;
+  text-align:center;cursor:pointer;
+  transition:border-color .2s,background .2s;
+  position:relative;
+}
+.quality-upload-box:hover,.quality-upload-box.dragging{
+  border-color:var(--forest-mid);background:var(--warm);
+}
+.quality-upload-icon{font-size:3.5rem;margin-bottom:1rem;opacity:.5;}
+.quality-upload-box h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown-dk);margin-bottom:.5rem;}
+.quality-upload-box p{font-size:.85rem;color:var(--muted);}
+.quality-upload-box input[type=file]{
+  position:absolute;inset:0;opacity:0;cursor:pointer;
+}
+.quality-result{
+  background:var(--white);border-radius:var(--r-lg);
+  border:1px solid var(--border);padding:2rem;
+  display:none;
+}
+.quality-result.show{display:block;}
+.quality-score-ring{
+  width:100px;height:100px;border-radius:50%;
+  background:conic-gradient(var(--forest-mid) var(--score,0%), var(--warm) 0%);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;position:relative;
+}
+.quality-score-ring::before{
+  content:'';position:absolute;inset:12px;
+  background:var(--white);border-radius:50%;
+}
+.quality-score-num{
+  position:relative;z-index:1;
+  font-family:'Playfair Display',serif;font-size:1.5rem;
+  font-weight:700;color:var(--forest-mid);
+}
+.quality-attrs{display:flex;flex-direction:column;gap:.8rem;}
+.q-attr{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.q-attr-label{font-size:.82rem;color:var(--muted);flex:1;}
+.q-attr-bar{flex:2;height:8px;background:var(--warm);border-radius:4px;overflow:hidden;}
+.q-attr-fill{height:100%;border-radius:4px;background:var(--forest-mid);transition:width 1s ease;}
+.q-attr-val{font-size:.82rem;font-weight:700;color:var(--brown);width:30px;text-align:right;}
+.quality-right{}
+.quality-info{display:flex;flex-direction:column;gap:1.5rem;}
+.quality-info-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:1.5rem;
+  display:flex;gap:1rem;align-items:flex-start;
+}
+.quality-info-icon{
+  width:44px;height:44px;border-radius:var(--r-sm);
+  background:var(--forest);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.quality-info-card h4{font-weight:700;color:var(--brown-dk);margin-bottom:.3rem;font-size:.95rem;}
+.quality-info-card p{font-size:.82rem;color:var(--muted);line-height:1.6;}
+
+/* ══════════════════════════════════════════
+   SUPPLY CHAIN
+══════════════════════════════════════════ */
+.supply{padding:6rem 0;background:var(--forest);overflow:hidden;}
+.supply-header{text-align:center;margin-bottom:4rem;}
+.supply-header .section-tag{color:rgba(200,151,58,.9);}
+.supply-header .section-title{color:#fff;}
+.supply-header .section-sub{color:rgba(255,255,255,.65);margin:0 auto;}
+.supply-chain{
+  display:flex;align-items:flex-start;gap:0;
+  position:relative;overflow-x:auto;padding-bottom:1rem;
+}
+.supply-chain::before{
+  content:'';
+  position:absolute;top:50px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,rgba(200,151,58,.5),rgba(200,151,58,.5),transparent);
+  z-index:0;
+}
+.supply-step{
+  flex:1;min-width:160px;text-align:center;position:relative;z-index:1;
+  padding:.5rem;
+}
+.supply-step-dot{
+  width:100px;height:100px;border-radius:50%;
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(8px);
+  border:2px solid rgba(200,151,58,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.2rem;
+  margin:0 auto 1.2rem;
+  transition:background .3s,transform .3s;
+  cursor:pointer;
+}
+.supply-step:hover .supply-step-dot{
+  background:rgba(200,151,58,.2);transform:scale(1.08);
+}
+.supply-step-num{
+  position:absolute;top:-8px;right:calc(50% - 58px);
+  width:22px;height:22px;border-radius:50%;
+  background:var(--gold);color:#fff;
+  font-size:.72rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.supply-step h4{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:#fff;margin-bottom:.4rem;
+}
+.supply-step p{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.55;}
+.supply-arrow{
+  position:absolute;top:40px;right:-18px;
+  color:rgba(200,151,58,.6);font-size:1.4rem;z-index:2;
+}
+
+/* ══════════════════════════════════════════
+   ABOUT
+══════════════════════════════════════════ */
+.about{padding:6rem 0;background:var(--warm);}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-main{
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.about-img-main img{width:100%;height:420px;object-fit:cover;}
+.about-img-float{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  width:160px;border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow-lg);border:4px solid var(--white);
+}
+.about-img-float img{width:100%;height:120px;object-fit:cover;}
+.about-badge{
+  position:absolute;top:-1rem;left:-1rem;
+  background:var(--gold);color:#fff;
+  width:80px;height:80px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  box-shadow:var(--shadow-md);
+}
+.about-badge-num{font-size:1.4rem;font-weight:700;line-height:1;}
+.about-badge-lbl{font-size:.58rem;text-transform:uppercase;letter-spacing:.5px;opacity:.85;}
+.about-text{}
+.about-text p{color:var(--muted);line-height:1.85;margin-bottom:1rem;font-size:.95rem;}
+.about-points{display:flex;flex-direction:column;gap:.9rem;margin-top:1.5rem;}
+.about-point{display:flex;align-items:flex-start;gap:.9rem;}
+.about-point-icon{
+  width:38px;height:38px;border-radius:var(--r-sm);
+  background:var(--forest);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.about-point h5{font-weight:700;color:var(--brown-dk);margin-bottom:.15rem;font-size:.9rem;}
+.about-point p{font-size:.82rem;color:var(--muted);line-height:1.55;}
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonials{padding:6rem 0;background:var(--cream);}
+.testimonials-header{text-align:center;margin-bottom:3rem;}
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;
+}
+.testi-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:2rem;
+  transition:transform .3s,box-shadow .3s;
+}
+.testi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.testi-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:1rem;}
+.testi-text{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem;
+}
+.testi-author{display:flex;align-items:center;gap:.8rem;}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--forest-mid),var(--sage));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0;
+}
+.testi-name{font-weight:700;font-size:.88rem;color:var(--brown-dk);}
+.testi-role{font-size:.75rem;color:var(--muted);}
+
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+.contact{padding:6rem 0;background:var(--warm);}
+.contact-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;}
+.contact-left h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown-dk);margin-bottom:.8rem;}
+.contact-left p{color:var(--muted);line-height:1.75;margin-bottom:2rem;font-size:.95rem;}
+.contact-items{display:flex;flex-direction:column;gap:1rem;}
+.contact-item{display:flex;align-items:center;gap:1rem;}
+.contact-item-icon{
+  width:42px;height:42px;border-radius:var(--r-sm);
+  background:var(--forest);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:#fff;flex-shrink:0;
+}
+.contact-item-text strong{display:block;font-size:.85rem;color:var(--brown-dk);}
+.contact-item-text span{font-size:.82rem;color:var(--muted);}
+.contact-form{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:2.5rem;
+  box-shadow:var(--shadow-sm);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;}
+.form-group label{font-size:.78rem;font-weight:700;color:var(--brown);letter-spacing:.5px;text-transform:uppercase;}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  padding:.72rem 1rem;
+  border:1.5px solid var(--border);border-radius:var(--r-sm);
+  font-size:.88rem;color:var(--text);background:var(--cream);
+  outline:none;transition:border-color .2s,box-shadow .2s;
+  resize:vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  border-color:var(--forest-mid);
+  box-shadow:0 0 0 3px rgba(45,90,53,.12);
+}
+.btn-submit{
+  width:100%;background:var(--forest-mid);color:#fff;
+  padding:.9rem;border:none;border-radius:var(--r-sm);
+  font-size:.92rem;font-weight:700;letter-spacing:.5px;
+  transition:background .2s,transform .2s;
+}
+.btn-submit:hover{background:var(--forest);transform:translateY(-1px);}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{background:var(--brown-dk);color:rgba(255,255,255,.65);padding:4rem 0 2rem;}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;margin-bottom:3rem;
+}
+.footer-brand h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;color:#fff;margin-bottom:.8rem;
+}
+.footer-brand h3 span{color:var(--gold);}
+.footer-brand p{font-size:.84rem;line-height:1.75;color:rgba(255,255,255,.5);margin-bottom:1.2rem;}
+.footer-socials{display:flex;gap:.6rem;}
+.social-btn{
+  width:34px;height:34px;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;color:rgba(255,255,255,.65);
+  transition:background .2s,color .2s;
+}
+.social-btn:hover{background:var(--gold);color:#fff;}
+.footer-col h4{
+  font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.footer-col ul li a{
+  font-size:.84rem;color:rgba(255,255,255,.5);
+  transition:color .2s;
+}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:.5rem;font-size:.78rem;
+}
+.footer-bottom a{color:var(--gold);}
+
+/* ══════════════════════════════════════════
+   MODALS
+══════════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;
+  padding:1rem;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--white);border-radius:var(--r-xl);
+  width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  animation:modalIn .35s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes modalIn{
+  from{opacity:0;transform:scale(.94) translateY(20px);}
+  to{opacity:1;transform:scale(1) translateY(0);}
+}
+.modal-sm{max-width:480px;}
+.modal-md{max-width:640px;}
+.modal-lg{max-width:900px;}
+.modal-header{
+  padding:2rem 2rem 1rem;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:var(--brown-dk);
+}
+.modal-close{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--warm);border:none;
+  font-size:1rem;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s;
+}
+.modal-close:hover{background:var(--beige);color:var(--brown-dk);}
+.modal-body{padding:2rem;}
+.modal-tabs{
+  display:flex;gap:.5rem;margin-bottom:2rem;
+  border-bottom:2px solid var(--border);
+}
+.modal-tab{
+  padding:.65rem 1.2rem;border:none;background:none;
+  font-size:.88rem;font-weight:600;color:var(--muted);
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:color .2s,border-color .2s;
+}
+.modal-tab.active{color:var(--forest-mid);border-bottom-color:var(--forest-mid);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ══════════════════════════════════════════
+   ADMIN PANEL
+══════════════════════════════════════════ */
+.admin-panel{
+  background:var(--white);border-radius:var(--r-xl);
+  overflow:hidden;
+}
+.admin-sidebar{
+  background:var(--forest);
+  padding:2rem 0;
+  min-height:500px;
+}
+.admin-nav-item{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.8rem 1.5rem;
+  color:rgba(255,255,255,.65);
+  font-size:.88rem;font-weight:500;
+  cursor:pointer;
+  transition:background .2s,color .2s;
+  border-left:3px solid transparent;
+}
+.admin-nav-item:hover,.admin-nav-item.active{
+  background:rgba(255,255,255,.08);
+  color:#fff;border-left-color:var(--gold);
+}
+.admin-nav-item i{width:18px;text-align:center;}
+.admin-main{padding:2rem;flex:1;}
+.admin-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.admin-stat-card{
+  background:var(--cream);border-radius:var(--r-md);
+  padding:1.2rem;border:1px solid var(--border);
+}
+.admin-stat-card .num{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:700;color:var(--forest-mid);
+}
+.admin-stat-card .lbl{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.admin-products-table{width:100%;border-collapse:collapse;}
+.admin-products-table th{
+  background:var(--warm);padding:.75rem 1rem;
+  font-size:.75rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--brown);text-align:left;
+}
+.admin-products-table td{
+  padding:.8rem 1rem;font-size:.85rem;
+  border-bottom:1px solid var(--border);vertical-align:middle;
+}
+.admin-products-table tr:hover td{background:var(--cream);}
+.admin-action-btns{display:flex;gap:.4rem;}
+.btn-approve{
+  background:#e8f5e9;color:#2e7d32;
+  padding:.3rem .75rem;border-radius:var(--r-sm);
+  border:1px solid #c8e6c9;font-size:.75rem;font-weight:700;
+  transition:background .2s;
+}
+.btn-approve:hover{background:#c8e6c9;}
+.btn-reject{
+  background:#fce4ec;color:#c62828;
+  padding:.3rem .75rem;border-radius:var(--r-sm);
+  border:1px solid #f8bbd0;font-size:.75rem;font-weight:700;
+  transition:background .2s;
+}
+.btn-reject:hover{background:#f8bbd0;}
+
+/* ══════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════ */
+.toast-container{
+  position:fixed;bottom:2rem;right:2rem;z-index:9999;
+  display:flex;flex-direction:column;gap:.6rem;
+  pointer-events:none;
+}
+.toast{
+  background:var(--forest);color:#fff;
+  padding:.9rem 1.4rem;border-radius:var(--r-md);
+  font-size:.88rem;font-weight:600;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:.7rem;
+  transform:translateX(120%);
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+  pointer-events:auto;max-width:320px;
+}
+.toast.show{transform:translateX(0);}
+.toast.success{background:var(--forest);}
+.toast.error{background:#c62828;}
+.toast.info{background:var(--amber);}
+
+/* ══════════════════════════════════════════
+   CART WIDGET
+══════════════════════════════════════════ */
+.cart-bubble{
+  position:fixed;bottom:2rem;left:2rem;z-index:800;
+  background:var(--gold);color:#fff;
+  width:56px;height:56px;border-radius:50%;
+  display:none;align-items:center;justify-content:center;
+  font-size:1.3rem;box-shadow:var(--shadow-lg);
+  cursor:pointer;transition:transform .2s;
+}
+.cart-bubble:hover{transform:scale(1.08);}
+.cart-bubble.show{display:flex;}
+.cart-count{
+  position:absolute;top:-4px;right:-4px;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--forest);color:#fff;
+  font-size:.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--white);
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS & SCROLL REVEAL
+══════════════════════════════════════════ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-cards{display:none;}
+  .market-inner{grid-template-columns:1fr;}
+  .quality-inner{grid-template-columns:1fr;}
+  .about-inner{grid-template-columns:1fr;}
+  .contact-inner{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .admin-stats-row{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{
+    display:none;position:absolute;top:68px;left:0;right:0;
+    background:var(--cream);flex-direction:column;padding:1rem 5%;
+    border-bottom:1px solid var(--border);gap:.2rem;
+  }
+  .nav-links.open{display:flex;}
+  .nav-hamburger{display:flex;}
+  .nav-actions .btn-nav-admin{display:none;}
+  .form-row{grid-template-columns:1fr;}
+  .supply-chain{gap:0;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+}
+@media(max-width:480px){
+  .grades-grid,.marketplace-grid{grid-template-columns:1fr;}
+  .admin-stats-row{grid-template-columns:1fr 1fr;}
+  .hero-btns{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <div class="nav-logo">
+    பன்ருட்டி <span>முந்திரி</span><sup>™</sup>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#grades">Cashew Grades</a></li>
+      <li><a href="#market">Market Prices</a></li>
+      <li><a href="#marketplace">Marketplace</a></li>
+      <li><a href="#quality">Quality Check</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-nav-farmer" onclick="openModal('farmerModal')">
+        🌾 Farmer Login
+      </button>
+      <button class="btn-nav-admin" onclick="openModal('adminModal')">
+        ⚙ Admindepart
+      </button>
+      <button class="nav-hamburger" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-img"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">🌿 Farm to Table — Panruti, Tamil Nadu</div>
+      <h1 class="hero-h1">
+        Premium <em>Cashews</em><br>
+        Direct from<br>Farmers
+      </h1>
+      <p class="hero-desc">
+        Experience the world's finest cashews sourced directly from Panruti — India's cashew capital. A marketplace connecting farmers, buyers, and cashew traders in one platform.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary" onclick="scrollTo('#grades')">
+          <i class="fas fa-shopping-basket"></i> Shop Cashews
+        </button>
+        <button class="btn-hero-secondary" onclick="openModal('farmerModal')">
+          🌾 Register as Farmer
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-lbl">Farmer Partners</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">50+</div>
+          <div class="hero-stat-lbl">Cities Served</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">12K+</div>
+          <div class="hero-stat-lbl">Happy Buyers</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-lbl">Natural &amp; Fresh</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card featured">
+        <div class="hero-card-icon">🏆</div>
+        <h4>Premium Grade Certified</h4>
+        <p>Every batch quality-tested and graded by certified inspectors before reaching buyers.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🌱</div>
+        <h4>Direct Farm Sourcing</h4>
+        <p>No middlemen. Better prices for farmers and buyers both.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🚚</div>
+        <h4>Pan-India Delivery</h4>
+        <p>Fast delivery to 50+ cities with real-time tracking.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🔒</div>
+        <h4>Admin Verified</h4>
+        <p>All farmer products approved before listing publicly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MARQUEE STRIP ════════ -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item"><span class="marquee-dot"></span> W180 King Cashews</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W210 Large Whole</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W240 Premium Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W320 Popular Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W450 Small Whole</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Broken Cashews</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Direct from Panruti Farmers</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Freshly Packed Daily</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W180 King Cashews</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W210 Large Whole</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W240 Premium Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W320 Popular Grade</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> W450 Small Whole</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Broken Cashews</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Direct from Panruti Farmers</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Freshly Packed Daily</span>
+     <span class="marquee-item"><span class="marquee-dot"></span> srikanth/span>
+      <span class="marquee-item"><span class="marquee-dot"></span> Freshly Packed Daily</span>
+  </div>
+</div>
+
+<!-- ════════════════ CASHEW GRADES ════════════════ -->
+<section class="grades" id="grades">
+  <div class="container">
+    <div class="grades-header reveal">
+      <div class="section-tag">Our Collection</div>
+      <h2 class="section-title">Cashew Grades &amp; Pricing</h2>
+      <p class="section-sub" style="margin:0 auto;">From the majestic W180 to versatile broken cashews — every grade sourced directly from certified Panruti farms.</p>
+    </div>
+    <div class="grades-grid" id="gradesGrid">
+      <!-- Grades populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ MARKET PRICES ════════════════ -->
+<section class="market" id="market">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Live Dashboard</div>
+      <h2 class="section-title">Market Prices Today</h2>
+      <p class="section-sub">Real-time cashew grade prices from Panruti mandi. Updated every morning.</p>
+    </div>
+    <div class="market-inner" style="margin-top:2.5rem;">
+      <div class="reveal">
+        <div class="market-table-wrap">
+          <table class="market-table">
+            <thead>
+              <tr>
+                <th>Grade</th>
+                <th>Price/kg</th>
+                <th>Change</th>
+                <th>Volume</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="marketTableBody">
+            </tbody>
+          </table>
+        </div>
+        <div class="market-last-updated">
+          <i class="fas fa-clock" style="color:var(--gold)"></i>
+          Last updated: <span id="marketTime"></span>
+        </div>
+      </div>
+      <div class="market-chart-wrap reveal reveal-delay-2">
+        <div class="market-chart-title">Price Comparison (₹ per kg)</div>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FARMER MARKETPLACE ════════════════ -->
+<section class="marketplace" id="marketplace">
+  <div class="container">
+    <div class="marketplace-header reveal">
+      <div class="section-tag">Live Listings</div>
+      <h2 class="section-title">Farmer Marketplace</h2>
+      <p class="section-sub">Browse admin-approved cashew listings directly from farmers. All verified for quality.</p>
+    </div>
+    <div class="marketplace-filters reveal">
+      <input type="text" class="filter-search" id="searchInput" placeholder="Search grade, farmer, location..." oninput="filterMarketplace()"/>
+      <div class="filter-group">
+        <select class="filter-select" id="gradeFilter" onchange="filterMarketplace()">
+          <option value="">All Grades</option>
+          <option>W180</option><option>W210</option><option>W240</option>
+          <option>W320</option><option>W450</option><option>Broken</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <select class="filter-select" id="priceFilter" onchange="filterMarketplace()">
+          <option value="">All Prices</option>
+          <option value="low">Under ₹700/kg</option>
+          <option value="mid">₹600 – ₹900/kg</option>
+          <option value="high">Above ₹1000/kg</option>
+        </select>
+      </div>
+    </div>
+    <div class="marketplace-grid" id="marketplaceGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ QUALITY CHECK ════════════════ -->
+<section class="quality" id="quality">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <div class="section-tag">AI-Powered</div>
+      <h2 class="section-title">Cashew Quality Checker</h2>
+      <p class="section-sub" style="margin:0 auto;">Upload an image of your cashew nuts to get an estimated grade and quality analysis.</p>
+    </div>
+    <div class="quality-inner">
+      <div>
+        <div class="quality-upload-box reveal" id="qualityUploadBox">
+          <div class="quality-upload-icon">📸</div>
+          <h3>Upload Cashew Image</h3>
+          <p>Drag &amp; drop or click to upload<br><small>JPG, PNG up to 10MB</small></p>
+          <input type="file" accept="image/*" id="qualityImageInput" onchange="analyzeQuality(this)"/>
+        </div>
+        <div class="quality-result" id="qualityResult">
+          <div style="text-align:center;margin-bottom:1.5rem;">
+            <div class="quality-score-ring" style="--score:82%">
+              <span class="quality-score-num">82</span>
+            </div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--brown-dk);">Quality Score</div>
+            <div class="badge badge-green" style="margin-top:.4rem;">Estimated Grade: W240</div>
+          </div>
+          <div class="quality-attrs">
+            <div class="q-attr">
+              <span class="q-attr-label">Size Uniformity</span>
+              <div class="q-attr-bar"><div class="q-attr-fill" style="width:85%"></div></div>
+              <span class="q-attr-val">85%</span>
+            </div>
+            <div class="q-attr">
+              <span class="q-attr-label">Color Quality</span>
+              <div class="q-attr-bar"><div class="q-attr-fill" style="width:78%"></div></div>
+              <span class="q-attr-val">78%</span>
+            </div>
+            <div class="q-attr">
+              <span class="q-attr-label">Breakage Level</span>
+              <div class="q-attr-bar"><div class="q-attr-fill" style="width:90%;background:#2e7d32"></div></div>
+              <span class="q-attr-val">Low</span>
+            </div>
+            <div class="q-attr">
+              <span class="q-attr-label">Moisture Content</span>
+              <div class="q-attr-bar"><div class="q-attr-fill" style="width:72%"></div></div>
+              <span class="q-attr-val">Ideal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="quality-right quality-info reveal reveal-delay-2">
+        <div class="quality-info-card">
+          <div class="quality-info-icon">🔬</div>
+          <div>
+            <h4>Grade Detection</h4>
+            <p>Our system analyses cashew nut size, shape, and color to estimate its W-grade classification from W180 to W450.</p>
+          </div>
+        </div>
+        <div class="quality-info-card">
+          <div class="quality-info-icon">📊</div>
+          <div>
+            <h4>Quality Scoring</h4>
+            <p>Each upload receives a quality score based on uniformity, color, breakage ratio, and estimated moisture content.</p>
+          </div>
+        </div>
+        <div class="quality-info-card">
+          <div class="quality-info-icon">💡</div>
+          <div>
+            <h4>Price Estimation</h4>
+            <p>Based on the grade detected, the system provides a suggested market price range aligned with today's Panruti mandi rates.</p>
+          </div>
+        </div>
+        <div class="quality-info-card">
+          <div class="quality-info-icon">🌐</div>
+          <div>
+            <h4>Certified Standards</h4>
+            <p>Analysis follows APEDA and Cashew Export Promotion Council of India (CEPCI) grading standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SUPPLY CHAIN ════════════════ -->
+<section class="supply" id="supply">
+  <div class="container">
+    <div class="supply-header reveal">
+      <div class="section-tag">Transparency</div>
+      <h2 class="section-title">Farm to Doorstep Journey</h2>
+      <p class="section-sub">Track every cashew's journey from harvest to your hands.</p>
+    </div>
+    <div class="supply-chain reveal" id="supplyChain">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+<!--https://tse4.mm.bing.net/th/id/OIP.w3-Ez8gHBlaGzIS1il1GagHaE8?rs=1&pid=ImgDetMain&o=7&rm=3-->
+<!-- ════════════════ ABOUT ════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-main">
+          <img src="https://www.momswhothink.com/wp-content/uploads/2023/06/shutterstock-1392187484-huge-licensed-scaled.jpg" alt="Cashew farming in Panruti"/>
+        </div>
+        <div class="about-img-float">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.w3-Ez8gHBlaGzIS1il1GagHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Premium cashew nuts"/>
+         <!-- https://balconygardenweb.b-cdn.net/wp-content/uploads/2015/10/cashew-nut-growing_mini.jpg-->
+        </div>
+        <div class="about-badge">
+          <span class="about-badge-num">19+</span>
+          <span class="about-badge-lbl">Years</span>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <div class="section-tag">Our Heritage</div>
+        <h2 class="section-title">Born in Panruti,<br>Tamil Nadu's Cashew Heart</h2>
+        <p>Panruti, located in Cuddalore district, is the undisputed cashew capital of India. For over three decades, our farmers have cultivated world-class cashews in the region's unique red laterite soil and tropical climate — conditions that produce cashews of unrivaled size and sweetness.</p>
+        <p>Our platform was built to eliminate exploitative middlemen and ensure that farmers receive fair prices while buyers get the freshest, most genuine product directly from the source.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">🌾</div>
+            <div>
+              <h5>Direct Farmer Connection</h5>
+              <p>500+ registered farmers sell directly to buyers, cutting out exploitative agents and improving farmer income by up to 30%.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">✅</div>
+            <div>
+              <h5>Admin-Verified Listings</h5>
+              <p>Every product uploaded by a farmer is reviewed and approved by our quality team before it appears publicly.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">📦</div>
+            <div>
+              <h5>Vacuum-Sealed Freshness</h5>
+              <p>Processed and packed within 24 hours of harvest for maximum freshness and shelf life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-tag">Customer Stories</div>
+      <h2 class="section-title">Trusted by Thousands</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The W180 cashews are unlike anything I've tasted from a supermarket. You can genuinely feel the freshness. Delivery was faster than expected too!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div><div class="testi-name">srikanth</div><div class="testi-role">Restaurant Owner, Chennai</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"As a farmer, this platform changed everything. I now get 28% more than what the local agents used to offer. Simple, transparent, and trustworthy."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MS</div>
+          <div><div class="testi-name">gowtham </div><div class="testi-role">bussiness man, Palani</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Ordered the W240 gift boxes for Diwali. The packaging was stunning and every person I gifted them to was genuinely impressed. Will always reorder."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PM</div>
+          <div><div class="testi-name">Priya Menon</div><div class="testi-role">Homemaker, Bengaluru</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT ════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Order or Enquire Today</h2>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <h3>We'd love to hear from you</h3>
+        <p>Whether you're a farmer looking to register, a buyer placing a bulk order, or simply curious about our cashews — our team is ready to assist you within 24 hours.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Address</strong>
+              <span>kadampuliyur - Panruti, Cuddalore District, Tamil Nadu — 607 103</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Phone</strong>
+              <span>+91 9345773439
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <span>orders@panruticashews.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text">
+              <strong>Hours</strong>
+              <span>Mon – Sat: 9:00 AM to 6:00 PM IST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-2">
+        <form onsubmit="submitContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Raj" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Kumar" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="raj@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+91 98765 43210"/>
+          </div>
+          <div class="form-group">
+            <label>Product Interest</label>
+            <select>
+              <option value="">Select a grade...</option>
+              <option>W180 – King Cashews</option>
+              <option>W210 – Large Whole</option>
+              <option>W240 – Standard Premium</option>
+              <option>W320 – Popular Grade</option>
+              <option>W450 – Small Whole</option>
+              <option>Broken Cashews</option>
+              <option>Bulk / B2B Order</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="4" placeholder="Tell us your requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            Send Enquiry <i class="fas fa-arrow-right" style="margin-left:.5rem;"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Panruti <span>Cashews</span>™</h3>
+        <p>A marketplace connecting farmers, buyers, and cashew traders in Panruti, Tamil Nadu. Bringing premium cashews directly from farms to your doorstep.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#grades">W180 King Cashews</a></li>
+          <li><a href="#grades">W210 Large Whole</a></li>
+          <li><a href="#grades">W240 Premium</a></li>
+          <li><a href="#grades">W320 Popular</a></li>
+          <li><a href="#grades">Broken Cashews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('farmerModal')">Farmer Registration</a></li>
+          <li><a href="#marketplace">Marketplace</a></li>
+          <li><a href="#market">Market Prices</a></li>
+          <li><a href="#quality">Quality Check</a></li>
+          <li><a href="#" onclick="openModal('adminModal')">Admin Panel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Panruti Premium Cashews. All rights reserved.</span>
+      <span>Made with 💜 in Tamil Nadu, India</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ MODALS ════════════════ -->
+
+<!-- FARMER MODAL -->
+<div class="modal-overlay" id="farmerModal">
+  <div class="modal modal-md">
+    <div class="modal-header">
+      <div class="modal-title">🌾 Farmer Portal</div>
+      <button class="modal-close" onclick="closeModal('farmerModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab('farmer','login')">Login</button>
+        <button class="modal-tab" onclick="switchTab('farmer','register')">Register</button>
+        <button class="modal-tab" onclick="switchTab('farmer','upload')">Upload Product</button>
+      </div>
+      <!-- Login -->
+      <div class="tab-panel active" id="farmer-login">
+        <form onsubmit="farmerLogin(event)">
+          <div class="form-group">
+            <label>Email / Phone</label>
+            <input type="text" placeholder="yourmailid@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required/>
+          </div>
+          <button type="submit" class="btn-submit">Login to Dashboard</button>
+        </form>
+      </div>
+      <!-- Register -->
+      <div class="tab-panel" id="farmer-register">
+        <form onsubmit="farmerRegister(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Farmer Name</label>
+              <input type="text" placeholder="Murugan Selvam" required/>
+            </div>
+            <div class="form-group">
+              <label>Village / Place</label>
+              <input type="text" placeholder="Panruti" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>District</label>
+              <input type="text" placeholder="Cuddalore" required/>
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" placeholder="Tamil Nadu" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input type="tel" placeholder="+91 98765 43210" required/>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="farmer@example.com" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Farm Size (Acres)</label>
+              <input type="number" placeholder="5" required/>
+            </div>
+            <div class="form-group">
+              <label>Cashew Variety</label>
+              <select>
+                <option>W240 – Standard</option>
+                <option>W180 – King Grade</option>
+                <option>W320 – Popular</option>
+                <option>Mixed Varieties</option>
+                <option> broken kernels</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" placeholder="••••••••" required/>
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" placeholder="••••••••" required/>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">Register as Farmer</button>
+        </form>
+      </div>
+      <!-- Upload Product -->
+      <div class="tab-panel" id="farmer-upload">
+        <div style="background:var(--warm);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-bottom:1.5rem;font-size:.85rem;color:var(--muted);">
+          <strong style="color:var(--forest-mid);">ℹ Note:</strong> Uploaded products go to admin review before appearing publicly in the marketplace.
+        </div>
+        <form onsubmit="uploadProduct(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Cashew Grade</label>
+              <select required>
+                <option value="">Select grade</option>
+                <option>W180</option><option>W210</option><option>W240</option>
+                <option>W320</option><option>W450</option><option>Broken</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Quantity Available (kg)</label>
+              <input type="number" placeholder="500" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Price per kg (₹)</label>
+              <input type="number" placeholder="850" required/>
+            </div>
+            <div class="form-group">
+              <label>Harvest Date</label>
+              <input type="date" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Quality Description</label>
+            <textarea rows="3" placeholder="Describe quality, appearance, storage conditions..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Farmer Location</label>
+            <input type="text" placeholder="Panruti, Cuddalore District" required/>
+          </div>
+          <div class="form-group">
+            <label>Product Image</label>
+            <input type="file" accept="image/*" style="border:1.5px dashed var(--border);padding:.6rem;background:var(--cream);"/>
+          </div>
+          <button type="submit" class="btn-submit">Submit for Admin Approval</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <div class="modal-title">⚙ Admin Control Panel</div>
+      <button class="modal-close" onclick="closeModal('adminModal')">✕</button>
+    </div>
+    <div class="modal-body" style="padding:0;">
+      <div style="display:grid;grid-template-columns:180px 1fr;min-height:500px;">
+        <div class="admin-sidebar">
+          <div style="padding:1rem 1.5rem;font-size:.7rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.5rem;">Navigation</div>
+          <div class="admin-nav-item active" onclick="adminNav(this,'dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+          <div class="admin-nav-item" onclick="adminNav(this,'products')"><i class="fas fa-box"></i> Products</div>
+          <div class="admin-nav-item" onclick="adminNav(this,'farmers')"><i class="fas fa-users"></i> Farmers</div>
+          <div class="admin-nav-item" onclick="adminNav(this,'transactions')"><i class="fas fa-exchange-alt"></i> Transactions</div>
+        </div>
+        <div class="admin-main" id="adminMainContent">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART BUBBLE -->
+<div class="cart-bubble" id="cartBubble" onclick="openModal('cartModal')">
+  🛒
+  <div class="cart-count" id="cartCount">0</div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal modal-sm">
+    <div class="modal-header">
+      <div class="modal-title">🛒 Your Cart</div>
+      <button class="modal-close" onclick="closeModal('cartModal')">✕</button>
+    </div>
+    <div class="modal-body" id="cartBody">
+      <p style="color:var(--muted);text-align:center;padding:2rem 0;">Your cart is empty.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ════════════════ JAVASCRIPT ════════════════ -->
+<script>
+// ══════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════
+const GRADES = [
+  {
+    id:'w180',grade:'W180',name:'King of Cashews',
+    desc:'The largest and most premium whole cashew. Fewer than 180 kernels per pound. Reserved for luxury gifting and premium hospitality.',
+    price:1250,rating:4.9,size:'Very Large (>9mm)',
+    img:'https://5.imimg.com/data5/QC/LY/BY/SELLER-25937371/cashew-nut-all-grades-1-2-3-4--1000x1000.jpg',
+    badge:'Premium',ratingCount:128
+  },
+  {
+    id:'w210',grade:'W210',name:'Large Whole Cashews',
+    desc:'Slightly smaller than W180 but still a premium large kernel. Excellent for direct consumption and premium gifting boxes.',
+    price:1050,rating:4.8,size:'Large (8–9mm)',
+    img:'https://5.imimg.com/data5/SELLER/Default/2023/10/350578080/WL/QN/IN/158952673/w210-cashew-nut-1000x1000.jpg',
+    badge:'Popular',ratingCount:245
+  },
+  {
+    id:'w240',grade:'W240',name:'Standard Premium Cashews',
+    desc:'The most commonly purchased grade worldwide. Excellent balance of size and affordability. Perfect for retail and bulk orders.',
+    price:920,rating:4.8,size:'Medium-Large (7–8mm)',
+    img:'https://cpimg.tistatic.com/08076532/b/4/W240-Cashews.jpg',
+    badge:'Bestseller',ratingCount:412
+  },
+  {
+    id:'w320',grade:'W320',name:'Popular Grade Cashews',
+    desc:'Most traded grade globally. Great for cooking, baking, and everyday snacking. Consistent size and flavor profile.',
+    price:780,rating:4.7,size:'Medium (6–7mm)',
+    //img:'https://images.unsplash.com/photo-1614088685112-0a760b71a3c8?w=600&q=80',
+    img:'https://5.imimg.com/data5/SELLER/Default/2021/9/MF/VW/HG/137488891/2020-10-14-14-28-01-jpg-500x500.jpg',
+    badge:'Value',ratingCount:318
+  },
+  {
+    id:'w450',grade:'W450',name:'Small Whole Cashews',
+    desc:'Smaller whole kernels with full flavor. Ideal for granola, trail mixes, and confectionery at a very accessible price point.',
+    price:620,rating:4.6,size:'Small (<6mm)',
+    //img:'https://images.unsplash.com/photo-1625869026498-33f8fcb498b5?w=600&q=80',
+    img:'https://5.imimg.com/data5/SELLER/Default/2021/9/BV/MO/TW/138413749/w-450-cashew-kernels-1000x1000.jpg',
+    badge:'Economy',ratingCount:189
+  },
+  {
+    id:'broken',grade:'Broken',name:'Broken Cashews',
+    desc:'Broken kernels of various grades — perfect for cooking, sweets, Indian mithai, and industrial use. Maximum flavor at minimum cost.',
+    price:380,rating:4.5,size:'Mixed Pieces',
+    //img:'https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80',
+    img:'https://th.bing.com/th/id/R.f18944e57e4fa7eafc63a4b2fefd6bc1?rik=1AmW2K51Y4XzmQ&riu=http%3a%2f%2fbulknuts.co.uk%2fcdn%2fshop%2ffiles%2fbroken-cashews-large-pieces.jpg%3fv%3d1704207080&ehk=07nxKXzlBUqMEgHMGvj9ecdZB5BHIrPHbpsj3iO4kDI%3d&risl=&pid=ImgRaw&r=0',
+    badge:'Cooking',ratingCount:92
+  }
+];
+
+const MARKET_DATA = [
+  {grade:'W180',price:1250,change:+15,vol:'2.4T',trend:'up'},
+  {grade:'W210',price:1050,change:+8,vol:'3.1T',trend:'up'},
+  {grade:'W240',price:920,change:-5,vol:'8.7T',trend:'down'},
+  {grade:'W320',price:780,change:+12,vol:'12.3T',trend:'up'},
+  {grade:'W450',price:620,change:-3,vol:'5.6T',trend:'down'},
+  {grade:'Broken',price:380,change:0,vol:'4.2T',trend:'flat'},
+];
+
+const LISTINGS = [
+  {id:1,farmer:'THILLAI  S.',loc:'RAMNAD',avatar:'MS',grade:'W240',qty:'500 kg',price:910,harvest:'2 days ago',img:'https://cpimg.tistatic.com/08076532/b/4/W240-Cashews.jpg',verified:true},
+  {id:2,farmer:'GOWTHAM K.',loc:'PALANI',avatar:'RK',grade:'W320',qty:'1200 kg',price:770,harvest:'1 day ago',img:'https://5.imimg.com/data5/SELLER/Default/2021/9/MF/VW/HG/137488891/2020-10-14-14-28-01-jpg-500x500.jpg',verified:true},
+  {id:3,farmer:'Selvi A.',loc:'Panruti',avatar:'SA',grade:'W180',qty:'200 kg',price:1240,harvest:'Today',img:'https://5.imimg.com/data5/QC/LY/BY/SELLER-25937371/cashew-nut-all-grades-1-2-3-4--1000x1000.jpg',verified:true},
+  {id:4,farmer:'Deepa M.',loc:'Chidambaram',avatar:'DM',grade:'W210',qty:'800 kg',price:1040,harvest:'3 days ago',img:'https://5.imimg.com/data5/SELLER/Default/2023/10/350578080/WL/QN/IN/158952673/w210-cashew-nut-1000x1000.jpg',verified:true},
+  {id:5,farmer:'Kannan P.',loc:'Panruti',avatar:'KP',grade:'W450',qty:'600 kg',price:615,harvest:'Today',img:'https://5.imimg.com/data5/SELLER/Default/2021/9/BV/MO/TW/138413749/w-450-cashew-kernels-1000x1000.jpg',verified:true},
+  {id:6,farmer:'Thilaga R.',loc:'Cuddalore',avatar:'TR',grade:'Broken',qty:'2000 kg',price:375,harvest:'2 days ago',img:'https://th.bing.com/th/id/R.f18944e57e4fa7eafc63a4b2fefd6bc1?rik=1AmW2K51Y4XzmQ&riu=http%3a%2f%2fbulknuts.co.uk%2fcdn%2fshop%2ffiles%2fbroken-cashews-large-pieces.jpg%3fv%3d1704207080&ehk=07nxKXzlBUqMEgHMGvj9ecdZB5BHIrPHbpsj3iO4kDI%3d&risl=&pid=ImgRaw&r=0',verified:true},
+];
+
+const SUPPLY_STEPS = [
+  {icon:'🌱',title:'Cultivation',desc:'Cashew trees grown in Panruti\'s red soil. Harvest season: Feb–May.'},
+  {icon:'🌰',title:'Harvesting',desc:'Raw cashew apples plucked by hand at peak ripeness.'},
+  {icon:'🔥',title:'Processing',desc:'Roasted, shelled, peeled, and graded by skilled workers.'},
+  {icon:'🔍',title:'Quality Check',desc:'Admin-verified grading and certification by inspectors.'},
+  {icon:'📦',title:'Packaging',desc:'Vacuum-sealed in food-grade packaging for freshness.'},
+  {icon:'🚚',title:'Dispatch',desc:'Delivered pan-India within 2–5 days with tracking.'},
+  {icon:'🏠',title:'Delivered',desc:'Fresh cashews at your doorstep, farm to table.'},
+];
+
+const ADMIN_PENDING = [
+  {id:'P001',farmer:'srikanth s',loc:'Panruti',grade:'W240',qty:'300kg',price:'₹890/kg',date:'Today',status:'pending'},
+  {id:'P002',farmer:'Lakshmi D.',loc:'Vridhachalam',grade:'W320',qty:'750kg',price:'₹760/kg',date:'Yesterday',status:'pending'},
+  {id:'P003',farmer:'Ganesan M.',loc:'velankuppam',grade:'W180',qty:'100kg',price:'₹1200/kg',date:'2 days ago',status:'pending'},
+  {id:'P004',farmer:'thillai  r.',loc:'kadampuliyur',grade:'W180',qty:'100kg',price:'₹1200/kg',date:'2 days ago',status:'pending'},
+  {id:'P006',farmer:'jason.',loc:'kaattupalayam',grade:'W180',qty:'100kg',price:'₹1200/kg',date:'2 days ago',status:'pending'},
+  {id:'P007',farmer:'mitra.',loc:'saththipattu',grade:'W180',qty:'100kg',price:'₹1200/kg',date:'2 days ago',status:'pending'},
+
+];
+
+
+// ══════════════════════════════════════════
+//  CART STATE
+// ══════════════════════════════════════════
+let cart = [];
+
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded',()=>{
+  renderGrades();
+  renderMarketTable();
+  renderBarChart();
+  renderMarketplace();
+  renderSupplyChain();
+  initParticles();
+  initScrollReveal();
+  initNavbar();
+  renderAdminDashboard();
+  setMarketTime();
+  animateBars();
+});
+
+// ══════════════════════════════════════════
+//  RENDER GRADES
+// ══════════════════════════════════════════
+function renderGrades(){
+  const grid=document.getElementById('gradesGrid');
+  grid.innerHTML=GRADES.map(g=>`
+    <div class="grade-card reveal">
+      <div class="grade-img">
+        <img src="${g.img}" alt="${g.name}" loading="lazy"/>
+        <div class="grade-img-overlay"></div>
+        <div class="grade-ribbon">${g.badge}</div>
+        <div class="grade-rating">⭐ ${g.rating}</div>
+      </div>
+      <div class="grade-body">
+        <div class="grade-name">${g.grade} — ${g.name}</div>
+        <div class="grade-desc">${g.desc}</div>
+        <div class="grade-meta">
+          <div class="grade-price"><sup>₹</sup>${g.price.toLocaleString()}<span>/kg</span></div>
+          <div class="grade-size">${g.size}</div>
+        </div>
+        <div class="grade-actions">
+          <button class="btn-buy" onclick="addToCart(${g.id?`'${g.id}'`:`'${g.grade.toLowerCase()}'`},'${g.grade} — ${g.name}',${g.price})">
+            🛒 Add to Cart
+          </button>
+          <button class="btn-enquire" onclick="showToast('Enquiry noted for ${g.grade}!','info')">
+            Enquire
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════════
+//  RENDER MARKET TABLE
+// ══════════════════════════════════════════
+function renderMarketTable(){
+  const tbody=document.getElementById('marketTableBody');
+  tbody.innerHTML=MARKET_DATA.map(m=>`
+    <tr>
+      <td><span class="market-grade-pill">${m.grade}</span></td>
+      <td class="${m.trend==='up'?'price-up':m.trend==='down'?'price-down':''}">₹${m.price}</td>
+      <td class="${m.trend==='up'?'price-up trend-up':m.trend==='down'?'price-down trend-down':''}">
+        ${m.change>0?'+':''}${m.change}
+      </td>
+      <td style="color:var(--muted)">${m.vol}</td>
+      <td>
+        <span class="badge ${m.trend==='up'?'badge-green':m.trend==='down'?'badge-red':'badge-gold'}">
+          ${m.trend==='up'?'Rising':m.trend==='down'?'Falling':'Stable'}
+        </span>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function setMarketTime(){
+  const now=new Date();
+  document.getElementById('marketTime').textContent=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})+', '+now.toLocaleDateString('en-IN');
+}
+
+// ══════════════════════════════════════════
+//  BAR CHART
+// ══════════════════════════════════════════
+function renderBarChart(){
+  const wrap=document.getElementById('barChart');
+  const maxPrice=Math.max(...MARKET_DATA.map(m=>m.price));
+  const colors=['green','green','green','gold','gold','brown'];
+  wrap.innerHTML=MARKET_DATA.map((m,i)=>`
+    <div class="bar-item">
+      <div class="bar-label">${m.grade}</div>
+      <div class="bar-track">
+        <div class="bar-fill ${colors[i]}" data-width="${(m.price/maxPrice*100).toFixed(1)}%" style="width:0%">
+          ₹${m.price}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function animateBars(){
+  setTimeout(()=>{
+    document.querySelectorAll('.bar-fill').forEach(bar=>{
+      bar.style.width=bar.dataset.width;
+    });
+  },600);
+}
+
+// ══════════════════════════════════════════
+//  MARKETPLACE
+// ══════════════════════════════════════════
+function renderMarketplace(data=LISTINGS){
+  const grid=document.getElementById('marketplaceGrid');
+  if(!data.length){
+    grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:3rem;">No listings match your filters.</p>';
+    return;
+  }
+  grid.innerHTML=data.map(l=>`
+    <div class="market-card reveal">
+      <div class="market-card-img">
+        <img src="${l.img}" alt="${l.grade}" loading="lazy"/>
+        ${l.verified?`<div class="market-card-verified">✓ Admin Verified</div>`:''}
+      </div>
+      <div class="market-card-body">
+        <div class="market-card-farmer">
+          <div class="farmer-avatar">${l.avatar}</div>
+          <div>
+            <div class="farmer-name">${l.farmer}</div>
+            <div class="farmer-location">📍 ${l.loc}</div>
+          </div>
+        </div>
+        <div class="market-card-grade">${l.grade} Grade Cashews</div>
+        <div class="market-card-meta">
+          <span class="meta-pill">📦 ${l.qty}</span>
+          <span class="meta-pill">🌱 Harvested ${l.harvest}</span>
+        </div>
+        <div class="market-card-footer">
+          <div class="market-card-price">₹${l.price}<small>/kg</small></div>
+          <button class="btn-contact" onclick="showToast('Connecting you with ${l.farmer}...','success')">
+            Contact Seller
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  initScrollReveal();
+}
+
+function filterMarketplace(){
+  const q=(document.getElementById('searchInput').value||'').toLowerCase();
+  const grade=document.getElementById('gradeFilter').value;
+  const priceRange=document.getElementById('priceFilter').value;
+  let filtered=LISTINGS.filter(l=>{
+    const matchQ=!q||(l.farmer+l.loc+l.grade).toLowerCase().includes(q);
+    const matchG=!grade||l.grade===grade;
+    let matchP=true;
+    if(priceRange==='low')matchP=l.price<700;
+    else if(priceRange==='mid')matchP=l.price>=700&&l.price<=1000;
+    else if(priceRange==='high')matchP=l.price>1000;
+    return matchQ&&matchG&&matchP;
+  });
+  renderMarketplace(filtered);
+}
+
+// ══════════════════════════════════════════
+//  SUPPLY CHAIN
+// ══════════════════════════════════════════
+function renderSupplyChain(){
+  const chain=document.getElementById('supplyChain');
+  chain.innerHTML=SUPPLY_STEPS.map((s,i)=>`
+    <div class="supply-step">
+      <div class="supply-step-num">${i+1}</div>
+      <div class="supply-step-dot">${s.icon}</div>
+      <h4>${s.title}</h4>
+      <p>${s.desc}</p>
+      ${i<SUPPLY_STEPS.length-1?`<div class="supply-arrow">→</div>`:''}
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════════
+//  QUALITY CHECK
+// ══════════════════════════════════════════
+function analyzeQuality(input){
+  if(!input.files||!input.files[0])return;
+  const result=document.getElementById('qualityResult');
+  showToast('Analysing cashew quality...','info');
+  setTimeout(()=>{
+    result.classList.add('show');
+    showToast('Quality analysis complete! Grade: W240','success');
+    document.querySelectorAll('.q-attr-fill').forEach(f=>{
+      const w=f.style.width;f.style.width='0%';
+      setTimeout(()=>f.style.width=w,100);
+    });
+  },1500);
+}
+
+// ══════════════════════════════════════════
+//  CART
+// ══════════════════════════════════════════
+function addToCart(id,name,price){
+  const existing=cart.find(i=>i.id===id);
+  if(existing){existing.qty++;showToast(`${name} quantity updated!`,'success');}
+  else{cart.push({id,name,price,qty:1});showToast(`${name} added to cart!`,'success');}
+  updateCartUI();
+}
+
+function updateCartUI(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  const bubble=document.getElementById('cartBubble');
+  if(count>0)bubble.classList.add('show');
+  else bubble.classList.remove('show');
+
+  const body=document.getElementById('cartBody');
+  if(!cart.length){
+    body.innerHTML='<p style="color:var(--muted);text-align:center;padding:2rem 0;">Your cart is empty.</p>';
+    return;
+  }
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  body.innerHTML=`
+    ${cart.map(i=>`
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--border);">
+        <div>
+          <div style="font-weight:600;font-size:.9rem;color:var(--brown-dk)">${i.name}</div>
+          <div style="font-size:.78rem;color:var(--muted)">₹${i.price}/kg × ${i.qty}kg</div>
+        </div>
+        <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--forest-mid)">₹${(i.price*i.qty).toLocaleString()}</div>
+      </div>
+    `).join('')}
+    <div style="display:flex;justify-content:space-between;padding:1rem 0;font-weight:700;font-size:1rem;">
+      <span>Total</span>
+      <span style="color:var(--forest-mid);font-family:'Playfair Display',serif">₹${total.toLocaleString()}</span>
+    </div>
+    <button onclick="showToast('Order placed! We will contact you shortly.','success');cart=[];updateCartUI();closeModal('cartModal');" class="btn-submit">
+      Place Order
+    </button>
+  `;
+}
+
+// ══════════════════════════════════════════
+//  MODALS
+// ══════════════════════════════════════════
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+  if(id==='adminModal')renderAdminDashboard();
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id);});
+});
+
+// ══════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════
+function switchTab(modal,tab){
+  const tabs=document.querySelectorAll(`#${modal}Modal .modal-tab`);
+  const panels=document.querySelectorAll(`#${modal}Modal .tab-panel`);
+  tabs.forEach(t=>t.classList.remove('active'));
+  panels.forEach(p=>p.classList.remove('active'));
+  const idx=['login','register','upload'].indexOf(tab);
+  if(tabs[idx])tabs[idx].classList.add('active');
+  const panel=document.getElementById(`${modal}-${tab}`);
+  if(panel)panel.classList.add('active');
+}
+
+// ══════════════════════════════════════════
+//  ADMIN PANEL
+// ══════════════════════════════════════════
+let adminSection='dashboard';
+function adminNav(el,section){
+  document.querySelectorAll('.admin-nav-item').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+  adminSection=section;
+  renderAdminContent(section);
+}
+function renderAdminDashboard(){renderAdminContent('dashboard');}
+function renderAdminContent(section){
+  const main=document.getElementById('adminMainContent');
+  if(section==='dashboard'){
+    main.innerHTML=`
+      <div style="margin-bottom:1.5rem;">
+        <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown-dk);margin-bottom:.3rem;">Admin Dashboard</div>
+        <div style="font-size:.82rem;color:var(--muted);">Overview of platform activity</div>
+      </div>
+      <div class="admin-stats-row">
+        <div class="admin-stat-card"><div class="num">32</div><div class="lbl">Pending Approvals</div></div>
+        <div class="admin-stat-card"><div class="num">487</div><div class="lbl">Active Farmers</div></div>
+        <div class="admin-stat-card"><div class="num">1,240</div><div class="lbl">Total Buyers</div></div>
+        <div class="admin-stat-card"><div class="num">₹48L</div><div class="lbl">This Month Sales</div></div>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown-dk);margin-bottom:1rem;">Pending Product Approvals</div>
+      <div style="overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border);">
+        <table class="admin-products-table">
+          <thead><tr><th>ID</th><th>Farmer</th><th>Location</th><th>Grade</th><th>Qty</th><th>Price</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody>
+            ${ADMIN_PENDING.map(p=>`
+              <tr id="admin-row-${p.id}">
+                <td style="font-weight:700;color:var(--gold)">${p.id}</td>
+                <td>${p.farmer}</td>
+                <td style="color:var(--muted)">${p.loc}</td>
+                <td><span class="market-grade-pill">${p.grade}</span></td>
+                <td>${p.qty}</td>
+                <td style="font-weight:700;color:var(--forest-mid)">${p.price}</td>
+                <td style="color:var(--muted)">${p.date}</td>
+                <td>
+                  <div class="admin-action-btns">
+                    <button class="btn-approve" onclick="adminAction('${p.id}','approve')">✓ Approve</button>
+                    <button class="btn-reject" onclick="adminAction('${p.id}','reject')">✕ Reject</button>
+                  </div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } else if(section==='farmers'){
+    main.innerHTML=`
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown-dk);margin-bottom:1.5rem;">Registered Farmers</div>
+      <div style="overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border);">
+        <table class="admin-products-table">
+          <thead><tr><th>Name</th><th>Village</th><th>District</th><th>Contact</th><th>Farm Size</th><th>Status</th></tr></thead>
+          <tbody>
+            ${['srikanth','gowtham','rio','Deepa Mani','Kannan Perumal'].map((n,i)=>`
+              <tr>
+                <td style="font-weight:600">${n}</td>
+                <td>${['Panruti','Vridhachalam','Panruti','Chidambaram','Panruti'][i]}</td>
+                <td style="color:var(--muted)">Cuddalore</td>
+                <td style="color:var(--muted)">+91 9876${50000+i*1234}</td>
+                <td>${[8,12,5,20,7][i]} acres</td>
+                <td><span class="badge badge-green">Verified</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } else if(section==='transactions'){
+    main.innerHTML=`
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown-dk);margin-bottom:1.5rem;">Recent Transactions</div>
+      <div style="overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border);">
+        <table class="admin-products-table">
+          <thead><tr><th>Order ID</th><th>Buyer</th><th>Grade</th><th>Qty</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+          <tbody>
+            ${['ORD-1001','ORD-1002','ORD-1003','ORD-1004','ORD-1005'].map((o,i)=>`
+              <tr>
+                <td style="font-weight:700;color:var(--gold)">${o}</td>
+                <td>${['Raj Kumar','Priya M.','Arjun S.','Meena K.','Suresh P.'][i]}</td>
+                <td><span class="market-grade-pill">${['W240','W180','W320','W210','Broken'][i]}</span></td>
+                <td>${[50,20,100,30,200][i]}kg</td>
+                <td style="font-weight:700;color:var(--forest-mid)">₹${[46000,25000,78000,31500,76000][i].toLocaleString()}</td>
+                <td style="color:var(--muted)">${['Today','Yesterday','2 days ago','3 days ago','4 days ago'][i]}</td>
+                <td><span class="badge badge-green">Completed</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } else {
+    main.innerHTML=`<div style="color:var(--muted);padding:2rem;text-align:center;">Section under development.</div>`;
+  }
+}
+
+function adminAction(id,action){
+  const row=document.getElementById(`admin-row-${id}`);
+  if(row){
+    row.style.opacity='0';row.style.transform='translateX(-20px)';row.style.transition='all .3s';
+    setTimeout(()=>row.remove(),300);
+  }
+  showToast(`Product ${id} ${action==='approve'?'approved and listed!':'rejected.'}`,action==='approve'?'success':'error');
+}
+
+// ══════════════════════════════════════════
+//  FORMS
+// ══════════════════════════════════════════
+function farmerLogin(e){
+  e.preventDefault();closeModal('farmerModal');
+  showToast('Welcome back! Farmer dashboard loading...','success');
+}
+function farmerRegister(e){
+  e.preventDefault();closeModal('farmerModal');
+  showToast('Registration successful! Awaiting admin verification.','success');
+}
+function uploadProduct(e){
+  e.preventDefault();
+  showToast('Product submitted for admin approval!','success');
+  switchTab('farmer','login');
+}
+function submitContact(e){
+  e.preventDefault();
+  showToast('Enquiry sent! We\'ll reach you within 24 hours.','success');
+  e.target.reset();
+}
+
+// ══════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════
+function showToast(msg,type='success'){
+  const container=document.getElementById('toastContainer');
+  const toast=document.createElement('div');
+  toast.className=`toast ${type}`;
+  const icons={success:'✅',error:'❌',info:'ℹ️'};
+  toast.innerHTML=`<span>${icons[type]||'ℹ️'}</span> ${msg}`;
+  container.appendChild(toast);
+  requestAnimationFrame(()=>{requestAnimationFrame(()=>toast.classList.add('show'));});
+  setTimeout(()=>{toast.classList.remove('show');setTimeout(()=>toast.remove(),400);},3500);
+}
+
+// ══════════════════════════════════════════
+//  PARTICLES
+// ══════════════════════════════════════════
+function initParticles(){
+  const container=document.getElementById('heroParticles');
+  for(let i=0;i<18;i++){
+    const span=document.createElement('span');
+    const size=Math.random()*60+20;
+    span.style.cssText=`
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*12+8}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    container.appendChild(span);
+  }
+}
+
+// ══════════════════════════════════════════
+//  SCROLL REVEAL
+// ══════════════════════════════════════════
+function initScrollReveal(){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el));
+  // Trigger bars when market section visible
+  const market=document.getElementById('market');
+  const barObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){animateBars();barObs.unobserve(e.target);}});
+  },{threshold:.3});
+  if(market)barObs.observe(market);
+}
+
+// ══════════════════════════════════════════
+//  NAVBAR
+// ══════════════════════════════════════════
+function initNavbar(){
+  window.addEventListener('scroll',()=>{
+    const nav=document.getElementById('navbar');
+    nav.classList.toggle('scrolled',window.scrollY>50);
+    // Active link
+    const sections=['home','grades','market','marketplace','quality','about','contact'];
+    let current='home';
+    sections.forEach(id=>{
+      const sec=document.getElementById(id);
+      if(sec&&window.scrollY>=sec.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.classList.toggle('active',a.getAttribute('href')==='#'+current);
+    });
+  });
+  document.getElementById('navToggle').addEventListener('click',()=>{
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+  });
+}
+
+function scrollTo(selector){
+  const el=document.querySelector(selector);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
